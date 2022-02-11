@@ -25,3 +25,33 @@ show procedure status where db = 'patientsdb';
 4. copy folder to ec2 Server `scp -r -i nodeapi.pem docker-node-mysql ec2-user@3.86.158.100:~/`
 5. log into server `ssh -i nodeapi.pem ec2-user@3.86.158.100`
 6. run docker container
+
+## 访问
+
+- local
+  localhost:5000
+- public
+  ip:3000
+
+## actions
+
+使用 httpie
+
+create patient
+
+```
+http POST :5000/patients first_name="Alexandre" last_name=Petion email=emailp@gmail.com phone=222-555-6458 address="123 Main Road" diagnosis=Cough image_url=https://profileimage.com
+
+```
+
+get patients
+
+```
+http :5000/patients
+```
+
+get patients by id
+
+```
+http :5000/patients/1
+```
